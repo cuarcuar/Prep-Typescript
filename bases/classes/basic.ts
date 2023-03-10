@@ -15,6 +15,4 @@
 
     const antman: Avenger = new Avenger('antman', 'cap', 'ant' );
 
-    console.log(antman.bio);
-
 })()
