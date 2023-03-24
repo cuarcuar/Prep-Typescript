@@ -1,0 +1,89 @@
+// Crear interfaces
+
+// Cree una interfaz para validar el auto (el valor enviado por parametro)
+
+interface Auto {
+  encender: boolean;
+  velocidadMaxima: number;
+  acelerar(): void;
+}
+
+const conducirBatimovil = (auto: Auto): void => {
+  auto.encender = true;
+  auto.velocidadMaxima = 100;
+  auto.acelerar();
+};
+
+const batimovil: Auto = {
+  encender: false,
+  velocidadMaxima: 0,
+  acelerar() {
+    console.log("...... gogogo!!!");
+  },
+};
+
+// Cree una interfaz con que permita utilzar el siguiente objeto
+// utilizando propiedades opcionales
+
+interface BestVillian {
+  reir: boolean;
+  comer?: boolean;
+  llorar?: boolean;
+}
+
+const guason: BestVillian = {
+  reir: true,
+  comer: true,
+  llorar: false,
+};
+
+const reir = (guason: BestVillian): void => {
+  if (guason.reir) {
+    console.log("JAJAJAJA");
+  }
+};
+
+// Cree una interfaz para la siguiente funcion
+
+interface GothamCity {
+  (ciudadanos: string[]): number;
+}
+
+const ciudadGotica: GothamCity = (ciudadanos: string[]): number => {
+  return ciudadanos.length;
+};
+
+// Cree una interfaz que obligue crear una clase
+// con las siguientes propiedades y metodos
+
+/*
+  propiedades:
+    - nombre
+    - edad
+    - sexo
+    - estadoCivil
+    - imprimirBio(): void // en consola una breve descripcion.
+*/
+
+interface Properties {
+  name: string;
+  age: number;
+  gender: string;
+  status: string;
+  printBio(): void;
+}
+
+class Persona implements Properties {
+  constructor(
+    public name: string,
+    public age: number,
+    public gender: string,
+    public status: string
+  ) {}
+
+  printBio(): void {
+    console.log(
+      `${this.name} has ${this.age} is a ${this.gender} and is ${this.status}`
+    );
+  }
+}
